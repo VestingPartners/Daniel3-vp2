@@ -41,14 +41,14 @@ export default function Login({
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen">
-      {/* Considera envolver la imagen en un div si necesitas m·s control */}
+      {/* Considera envolver la imagen en un div si necesitas m√°s control */}
       <div className="w-full flex justify-center px-4">
         <Image
           src="/LogoCapitalStorage_Fondo Azul (1).png"
           width={300}
-          height={300} // Aseg˙rate de que estos valores mantienen la relaciÛn de aspecto de la imagen original
+          height={300} // Aseg√∫rate de que estos valores mantienen la relaci√≥n de aspecto de la imagen original
           alt="Logo de Capital Storage"
-          className="mx-auto my-4 max-w-xs sm:max-w-sm md:max-w-md" // Ajusta las clases de tamaÒo m·ximo para diferentes pantallas
+          className="mx-auto my-4 max-w-xs sm:max-w-sm md:max-w-md" // Ajusta las clases de tama√±o m√°ximo para diferentes pantallas
         />
       </div>
       <div className="flex flex-col w-full px-4 py-8 sm:p-12 sm:max-w-md justify-center gap-2 bg-white shadow-lg rounded-lg">
@@ -69,13 +69,13 @@ export default function Login({
             required
           />
           <label className="text-md" htmlFor="password">
-            ContraseÒa
+            Contrase√±a
           </label>
           <input
             className="rounded-md px-4 py-2 bg-inherit border mb-2"
             type="password"
             name="password"
-            placeholder="ïïïïïïïï"
+            placeholder="‚Ä¢‚Ä¢‚Ä¢‚Ä¢‚Ä¢‚Ä¢‚Ä¢‚Ä¢"
             required
           />
           <SubmitButton
@@ -90,7 +90,7 @@ export default function Login({
             href={"/forgot-password"}
             className="text-blue-600 hover:text-blue-800 w-full max-w-md text-center text-sm"
           >
-            Cambia tu contraseÒa
+            Cambia tu contrase√±a
           </Link>
           {/* <SubmitButton
             formAction={signUp}
@@ -109,7 +109,7 @@ export default function Login({
       <p className="mt-8 w-full max-w-md text-center text-sm text-gray-600">
         Bienvenido a Capstor Software, el portal de inversionistas de Capital
         Storage. Este sitio web es de uso exclusivo para los actuales y
-        potenciales inversionistas. Para m·s informaciÛn o para solicitar
+        potenciales inversionistas. Para m√°s informaci√≥n o para solicitar
         acceso, por favor contacte a{" "}
         <Link
           href="mailto:contacto@capitalstorage.cl"
