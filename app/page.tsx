@@ -23,7 +23,7 @@ const InvestmentLocationMap = () => {
     <Card className="w-full">
       <CardContent className="p-4">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold">País de Inversión</h2>
+          <h2 className="text-lg font-semibold">PaÃ­s de InversiÃ³n</h2>
           <span className="text-gray-400">
             <ChevronRight />
           </span>
@@ -53,7 +53,7 @@ const PaymentItem = ({ date, amount, isPaid }) => (
     <div>
       <p className="font-medium">{date}</p>
       <p className="text-sm text-gray-500">
-        Interés {isPaid ? "pagado" : "a pagar"}: USD$ {amount}
+        InterÃ©s {isPaid ? "pagado" : "a pagar"}: USD$ {amount}
       </p>
     </div>
     {isPaid ? (
@@ -87,7 +87,7 @@ const VestingPartnersDashboard = () => {
             <div className="flex items-center space-x-4">
               <Bell className="h-6 w-6 text-gray-500" />
               <div className="text-sm text-right">
-                <p className="font-medium">Juan Pablo Roselló</p>
+                <p className="font-medium">Juan Pablo RosellÃ³</p>
                 <p className="text-gray-500">Inversionista</p>
               </div>
             </div>
@@ -98,10 +98,10 @@ const VestingPartnersDashboard = () => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="space-y-6">
           <section>
-            <h2 className="text-lg font-semibold mb-4">Resumen de Inversión</h2>
+            <h2 className="text-lg font-semibold mb-4">Resumen de InversiÃ³n</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <DashboardCard title="INVERSIÓN VIGENTE" value="USD$ 100.000" />
-              <DashboardCard title="TASA DE INTERÉS ANUAL" value="7%" />
+              <DashboardCard title="INVERSIÃ“N VIGENTE" value="USD$ 100.000" />
+              <DashboardCard title="TASA DE INTERÃ‰S ANUAL" value="7%" />
               <Card className="bg-white shadow-sm">
                 <CardContent className="p-4 flex flex-col justify-between h-full">
                   <h3 className="text-sm font-medium text-gray-500">
@@ -176,10 +176,10 @@ const VestingPartnersDashboard = () => {
                 <Card>
                   <CardContent className="p-4 space-y-2">
                     <button className="w-full flex items-center gap-4 p-2 text-left text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-md transition">
-                      <FileText /> Certificado 1° Aporte
+                      <FileText /> Certificado 1Â° Aporte
                     </button>
                     <button className="w-full flex items-center gap-4 p-2 text-left text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-md transition">
-                      <FileText /> Cartola 2° semestre 2024
+                      <FileText /> Cartola 2Â° semestre 2024
                     </button>
                   </CardContent>
                 </Card>
