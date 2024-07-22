@@ -28,9 +28,9 @@ export default function Login() {
 
           <div className="bg-white p-8 rounded-lg shadow-sm w-full">
             <h2 className="text-xl mb-6 text-center">
-              Sign in with{" "}
+              Ingresar a{" "}
               <span className="font-semibold text-[#25567c]">
-                Vesting Partners
+                Nikolas
               </span>
             </h2>
 
@@ -48,7 +48,7 @@ export default function Login() {
                   type="email"
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  placeholder="correo@ejemplo.com"
+                  placeholder="Ingrese su correo"
                 />
               </div>
 
