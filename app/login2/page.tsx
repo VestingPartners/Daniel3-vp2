@@ -88,10 +88,10 @@ export default function Login() {
           </div>
 
           <p className="mt-8 text-center text-sm text-gray-600 max-w-md">
-            Bienvenido a Vesting Partners, el portal de inversionistas de
-            Vesting. Este sitio web es de uso exclusivo para los actuales y
-            potenciales inversionistas. Para más información o para solicitar
-            acceso, por favor contacte a{" "}
+            Bienvenido a Nikolas, el portal de gestión financiera de
+            Vesting. Este sitio web es de uso exclusivo para miembros y
+            socios. Para mayor información o para solicitar acceso,
+            por favor contacte a{" "}
             <a
               href="mailto:contacto@vestingpartners.cl"
               className="text-blue-600 hover:underline"
