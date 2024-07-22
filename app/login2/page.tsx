@@ -21,9 +21,9 @@ export default function Login() {
           <Image
             src="/vp.png"
             width={300}
-            height={300} // Aseg˙rate de que estos valores mantienen la relaciÛn de aspecto de la imagen original
+            height={300} // Aseg√∫rate de que estos valores mantienen la relaci√≥n de aspecto de la imagen original
             alt="Logo de Capital Storage"
-            className="mx-auto my-4 max-w-xs sm:max-w-sm md:max-w-md" // Ajusta las clases de tamaÒo m·ximo para diferentes pantallas
+            className="mx-auto my-4 max-w-xs sm:max-w-sm md:max-w-md" // Ajusta las clases de tama√±o m√°ximo para diferentes pantallas
           />
 
           <div className="bg-white p-8 rounded-lg shadow-sm w-full">
@@ -57,7 +57,7 @@ export default function Login() {
                   htmlFor="password"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  ContraseÒa
+                  Contrase√±a
                 </label>
                 <input
                   id="password"
@@ -65,7 +65,7 @@ export default function Login() {
                   type="password"
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                  placeholder="ïïïïïïïï"
+                  placeholder="‚Ä¢‚Ä¢‚Ä¢‚Ä¢‚Ä¢‚Ä¢‚Ä¢‚Ä¢"
                 />
               </div>
 
@@ -82,7 +82,7 @@ export default function Login() {
                 href="/forgot-password"
                 className="text-sm text-blue-600 hover:underline"
               >
-                Cambia tu contraseÒa
+                Cambia tu contrase√±a
               </Link>
             </div>
           </div>
@@ -90,7 +90,7 @@ export default function Login() {
           <p className="mt-8 text-center text-sm text-gray-600 max-w-md">
             Bienvenido a Vesting Partners, el portal de inversionistas de
             Vesting. Este sitio web es de uso exclusivo para los actuales y
-            potenciales inversionistas. Para m·s informaciÛn o para solicitar
+            potenciales inversionistas. Para m√°s informaci√≥n o para solicitar
             acceso, por favor contacte a{" "}
             <a
               href="mailto:contacto@vestingpartners.cl"

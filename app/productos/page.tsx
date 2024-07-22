@@ -30,7 +30,7 @@ const pieChartData = [
   { name: "Automotriz", value: 25, color: "#7F7FD5" },
   { name: "Downpayment Inmobilario", value: 20, color: "#FFA500" },
   { name: "Bridge Loan", value: 10, color: "#FFD166" },
-  { name: "Structured Loan", value: 10, color: "#7F7FD5" },
+  { name: "StructuredÂ Loan", value: 10, color: "#7F7FD5" },
 ];
 
 //@ts-ignore
@@ -69,7 +69,7 @@ export default function ProductosPage() {
               </Link>
               <Bell className="h-6 w-6 text-gray-500" />
               <div className="text-sm text-right">
-                <p className="font-medium">Juan Pablo Roselló</p>
+                <p className="font-medium">Juan Pablo RosellÃ³</p>
                 <p className="text-gray-500">Inversionista</p>
               </div>
             </div>
@@ -91,7 +91,7 @@ export default function ProductosPage() {
             <CardContent className="p-6">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-lg font-semibold">
-                  Evolución de la cartera
+                  EvoluciÃ³n de la cartera
                 </h2>
               </div>
               <ResponsiveContainer width="100%" height={300}>
