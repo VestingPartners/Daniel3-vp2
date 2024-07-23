@@ -8,10 +8,10 @@ const apiSecret_password = process.env.PASSWORD_DANIEL;
 const apiSecret_port = process.env.PORT_DANIEL;
 
 const dbConfig = {
-    user: apiSecret_user,
-    password: apiSecret_password,
-    database: apiSecret_database,
-    server: apiSecret_server,
+    user: 'consulta',
+    password: 'consulta',
+    database: 'VP',
+    server: '201.159.169.163\\WIN-2ODKFLFVAF3,1433',
     pool: {
         max: 10,
         min: 0,
