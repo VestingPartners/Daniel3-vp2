@@ -2,6 +2,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+const apiSecret = process.env.SERVER_DANIEL;
+console.log(apiSecret); // Imprime el valor de API_SECRET
+
 export default function Login() {
   return (
     <div className="flex h-screen">
