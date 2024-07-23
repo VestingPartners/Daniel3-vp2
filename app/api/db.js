@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     let pool
     try {
         pool = await sql.connect(dbConfig)
-        const result = await pool.request().query('SELECT 1 AS number') // Ejemplo de consulta
+        const result = await pool.request().query('SELECT * from RUT') // Ejemplo de consulta
         console.log(result)
         res.status(200).json({ message: 'Conexión exitosa', data: result.recordset })
     } catch (err) {
