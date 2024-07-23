@@ -12,7 +12,6 @@ const dbConfig = {
     password: apiSecret_password,
     database: apiSecret_database,
     server: apiSecret_server,
-    port: apiSecret_port,
     pool: {
         max: 10,
         min: 0,
@@ -27,7 +26,7 @@ export default async function handler(req, res) {
     let pool
     try {
         pool = await sql.connect(dbConfig)
-        const result = await pool.request().query('SELECT * from RUT') // Ejemplo de consulta
+        const result = await pool.request().query('SELECT top 1 rut from RUT') // Ejemplo de consulta
         console.log(result)
         res.status(200).json({ message: 'Conexión exitosa', data: result.recordset })
     } catch (err) {
