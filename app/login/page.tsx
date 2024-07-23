@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'; //import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-export  function MiPagina() {
+export  function page() {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
 
