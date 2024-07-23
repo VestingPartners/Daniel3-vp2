@@ -1,9 +1,44 @@
-import React from "react";
+"use client"
+import React, { useEffect, useState } from 'react'; //import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+export  function MiPagina() {
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
 
+    useEffect(() => {
+        // Asume que tu endpoint de la API es '/api/db'
+        fetch('/api/db')
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta de la red');
+                }
+                return response.json();
+            })
+            .then((data) => setData(data))
+            .catch((error) => setError(error.message));
+    }, []); // El array vacío asegura que el efecto se ejecute solo una vez al montar el componente
+
+    if (error) {
+        return <div>Error al cargar los datos: {error}</div>;
+    }
+
+    if (!data) {
+        return <div>Cargando...</div>;
+    }
+
+    return (
+        <div>
+            <h1>Resultado de la Conexión</h1>
+            <p>{JSON.stringify(data)}</p>
+        </div>
+    );
+}
 export default function Login() {
-const apiSecret = process.env.SERVER_DANIEL;
+    const apiSecret_server = process.env.SERVER_DANIEL;
+    const apiSecret_database = process.env.DATABASE_DANIEL;
+    const apiSecret_user = process.env.USER_DANIEL;
+    const apiSecret_password = process.env.PASSWORD_DANIEL;
 
   return (
     <div className="flex h-screen">
@@ -18,7 +53,6 @@ const apiSecret = process.env.SERVER_DANIEL;
         />
         <div className="absolute bottom-4 left-4 text-white text-lg font-semibold">
                   Vesting Partners
-                  <p>Valor de la variable de entorno: {apiSecret}</p>
         </div>
       </div>
 
