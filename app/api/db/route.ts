@@ -1,4 +1,4 @@
-
+//@ts-nocheck
 import sql from 'mssql'
 
 const apiSecret_server = process.env.SERVER_DANIEL;
@@ -8,10 +8,10 @@ const apiSecret_password = process.env.PASSWORD_DANIEL;
 const apiSecret_port = process.env.PORT_DANIEL;
 
 const dbConfig = {
-    user: 'consulta',
-    password: 'consulta',
-    database: 'VP',
-    server: '201.159.169.163\\WIN-2ODKFLFVAF3,1433',
+    user: apiSecret_user,
+    password: apiSecret_password,
+    database: apiSecret_database,
+    server: apiSecret_server,
     pool: {
         max: 10,
         min: 0,
@@ -21,17 +21,35 @@ const dbConfig = {
         encrypt: false
     }
 }
-export default async function handler(req, res) {
-    let pool
+
+let pool;
+
+async function getPool() {
+    if (!pool) {
+        try {
+            pool = await sql.connect(dbConfig);
+        } catch (err) {
+            console.error("Error al crear el pool de conexiones:", err);
+            throw err;
+        }
+    }
+    return pool;
+}
+
+export async function GET() {
     try {
-        pool = await sql.connect(dbConfig)
-        const result = await pool.request().query('SELECT top 1 rut from RUT') // Ejemplo de consulta
-        console.log(result)
-        res.status(200).json({ message: 'Conexión exitosa', data: result.recordset })
+        const pool = await getPool();
+        const result = await pool.request().query("SELECT TOP 1 rut FROM RUT");
+
+        return Response.json({
+            message: "Conexión exitosa",
+            data: result.recordset,
+        });
     } catch (err) {
-        console.error('Error de conexión SQL', err)
-        res.status(500).json({ message: 'Error al conectar a la base de datos' })
-    } finally {
-        pool?.close() // cierra la conexión
+        console.error("Error de conexión SQL", err);
+        return Response.json(
+            { message: "Error al conectar a la base de datos", error: err.message },
+            { status: 500 }
+        );
     }
 }
