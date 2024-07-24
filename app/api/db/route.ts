@@ -1,11 +1,4 @@
-import sql from 'mssql'
-
-const apiSecret_server = process.env.SERVER_DANIEL;
-const apiSecret_database = process.env.DATABASE_DANIEL;
-const apiSecret_user = process.env.USER_DANIEL;
-const apiSecret_password = process.env.PASSWORD_DANIEL;
-const apiSecret_port = process.env.PORT_DANIEL;
-const apiSecret_instanceName = process.env.INSTANCENAME_DANIEL;
+import sql, { ConnectionPool } from "mssql";
 
 const dbConfig = {
     user: "consulta",
@@ -25,7 +18,7 @@ const dbConfig = {
     },
 };
 
-let pool;
+let pool: ConnectionPool | null = null;
 
 async function getPool() {
     if (!pool) {
@@ -51,7 +44,7 @@ export async function GET() {
     } catch (err) {
         console.error("Error de conexión SQL", err);
         return Response.json(
-            { message: "Error al conectar a la base de datos", error: err.message },
+            { message: "Error al conectar a la base de datos", error: Error.name },
             { status: 500 }
         );
     }
