@@ -1,4 +1,3 @@
-//@ts-nocheck
 import sql from 'mssql'
 
 const apiSecret_server = process.env.SERVER_DANIEL;
@@ -18,12 +17,13 @@ const dbConfig = {
     pool: {
         max: 10,
         min: 0,
-        idleTimeoutMillis: 30000
+        idleTimeoutMillis: 30000,
     },
     options: {
-        encrypt: false
-    }
-}
+        encrypt: false,
+        trustServerCertificate: true,
+    },
+};
 
 let pool;
 
