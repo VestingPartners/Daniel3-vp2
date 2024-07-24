@@ -38,11 +38,11 @@ export async function GET() {
         const result = await pool.request().query("SELECT TOP 1 rut FROM RUT");
 
         return Response.json({
-            message: "Conexión exitosa",
+            message: "Conexiï¿½n exitosa",
             data: result.recordset,
         });
     } catch (err) {
-        console.error("Error de conexión SQL", err);
+        console.error("Error de conexiï¿½n SQL", err);
         return Response.json(
             { message: "Error al conectar a la base de datos", error: Error.name },
             { status: 500 }
