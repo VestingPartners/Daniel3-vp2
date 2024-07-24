@@ -7,7 +7,7 @@ export default function Login() {
 
     useEffect(() => {
         // Asume que tu endpoint de la API es '/api/db'
-        fetch('/api/route')
+        fetch('/api/db')
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Error en la respuesta de la red');
