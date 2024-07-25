@@ -12,9 +12,8 @@ const dbConfig = {
     idleTimeoutMillis: 30000,
   },
   options: {
-    encrypt: true,
-    trustServerCertificate: true,
-    instanceName: 'WIN-2ODKFLFVAF3'
+    encrypt: false,
+    trustServerCertificate: true
   }
 };
 
