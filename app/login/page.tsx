@@ -6,7 +6,7 @@ export default function Login() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Asume que tu endpoint de la API es '/api/db'
+
         fetch('/api/db')
             .then((response) => {
                 if (!response.ok) {
@@ -16,7 +16,7 @@ export default function Login() {
             })
             .then((data) => setData(data))
             .catch((error) => setError(error.message));
-    }, []); // El array vacío asegura que el efecto se ejecute solo una vez al montar el componente
+    }, []); 
 
     if (error) {
         return <div>Error al cargar los datos: {error}</div>;
