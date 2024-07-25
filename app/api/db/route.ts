@@ -31,7 +31,19 @@ async function getPool() {
   return pool;
 }
 
-export async function GET() {
+function verifyToken(request: Request) {
+  const token = request.headers.get('Authorization')?.split(' ')[1];
+  return token === process.env.VERCEL_TOKEN;
+}
+
+export async function GET(request: Request) {
+  if (!verifyToken(request)) {
+    return Response.json(
+      { message: "No autorizado" },
+      { status: 401 }
+    );
+  }
+
   try {
     const pool = await getPool();
     const result = await pool.request().query("SELECT rut FROM RUT");

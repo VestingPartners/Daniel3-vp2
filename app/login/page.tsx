@@ -7,7 +7,9 @@ export default function Login() {
 
     useEffect(() => {
 
-        fetch('/api/db')
+        fetch('https://daniel3-vp2.vercel.app/api/db', {
+            headers: { 'Authorization': 'Bearer WzXWHFGZEiQ6Y4C1UXCNMx5I' }
+          })
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Error en la respuesta de la red');
