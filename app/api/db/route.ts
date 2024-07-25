@@ -1,6 +1,7 @@
 import sql from "mssql";
 
 const dbConfig = {
+  port: 1433,
   user: "consulta",
   password: "consulta",
   database: "VP",
@@ -14,8 +15,7 @@ const dbConfig = {
     encrypt: true,
     trustServerCertificate: true,
     instanceName: 'WIN-2ODKFLFVAF3'
-  },
-  port: 1433
+  }
 };
 
 let pool: any;
