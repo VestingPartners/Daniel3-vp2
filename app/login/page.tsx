@@ -1,6 +1,8 @@
 "use client"
 import React, { useEffect, useState } from 'react'; //import React from "react";
 
+export const dynamic = 'force-dynamic'
+
 export default function Login() {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
