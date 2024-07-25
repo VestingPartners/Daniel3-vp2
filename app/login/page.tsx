@@ -7,7 +7,7 @@ export default function Login() {
 
     useEffect(() => {
 
-        fetch('https://daniel3-vp2.vercel.app/api/db', {
+        fetch('api/db', {
             headers: { 
                 Authorization: 'Bearer WzXWHFGZEiQ6Y4C1UXCNMx5I'
             }
