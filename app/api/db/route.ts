@@ -1,21 +1,21 @@
-import sql, { ConnectionPool } from "mssql";
+import sql from "mssql";
 
 const dbConfig = {
-    user: "consulta",
-    password: "consulta",
-    database: "VP",
-    server: "201.159.169.163\\WIN-2ODKFLFVAF3,1433",
-    //port: 1433,
-    //instanceName: "WIN-2ODKFLFVAF3",
-    pool: {
-        max: 10,
-        min: 0,
-        idleTimeoutMillis: 30000,
-    },
-    options: {
-        encrypt: false,
-        trustServerCertificate: true,
-    },
+  user: "consulta",
+  password: "consulta",
+  database: "VP",
+  server: "201.159.169.163",
+  port: 1433,
+  instanceName: "WIN-2ODKFLFVAF3",
+  pool: {
+    max: 10,
+    min: 0,
+    idleTimeoutMillis: 30000,
+  },
+  options: {
+    encrypt: false,
+    trustServerCertificate: true,
+  },
 };
 
 let pool: any;
