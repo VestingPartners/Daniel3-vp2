@@ -21,11 +21,9 @@ export default function Login() {
     if (error) {
         return <div>Error al cargar los datos: {error}</div>;
     }
-
     if (!data) {
         return <div>Cargando...</div>;
     }
-
     return (
         <div>
             <h1>Resultado de la Conexión</h1>
