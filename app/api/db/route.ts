@@ -34,7 +34,7 @@ async function getPool() {
 export async function GET() {
   try {
     const pool = await getPool();
-    const result = await pool.request().query("SELECT TOP 1 rut FROM RUT");
+    const result = await pool.request().query("SELECT rut FROM RUT");
 
     return Response.json({
       message: "Conexión exitosa",
