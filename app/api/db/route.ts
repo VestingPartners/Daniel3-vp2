@@ -16,6 +16,7 @@ const dbConfig = {
     trustServerCertificate: true,
   },
 };
+
 let pool: any;
 
 async function getPool() {
