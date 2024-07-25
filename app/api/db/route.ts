@@ -18,34 +18,34 @@ const dbConfig = {
     },
 };
 
-let pool: ConnectionPool | null = null;
+let pool: any;
 
 async function getPool() {
-    if (!pool) {
-        try {
-            pool = await sql.connect(dbConfig);
-        } catch (err) {
-            console.error("Error al crear el pool de conexiones:", err);
-            throw err;
-        }
+  if (!pool) {
+    try {
+      pool = await sql.connect(dbConfig);
+    } catch (err) {
+      console.error("Error al crear el pool de conexiones:", err);
+      throw err;
     }
-    return pool;
+  }
+  return pool;
 }
 
 export async function GET() {
-    try {
-        const pool = await getPool();
-        const result = await pool.request().query("SELECT TOP 1 rut FROM RUT");
+  try {
+    const pool = await getPool();
+    const result = await pool.request().query("SELECT TOP 1 rut FROM RUT");
 
-        return Response.json({
-            message: "Conexi�n exitosa",
-            data: result.recordset,
-        });
-    } catch (err) {
-        console.error("Error de conexi�n SQL", err);
-        return Response.json(
-            { message: "Error al conectar a la base de datos", error: Error.name },
-            { status: 500 }
-        );
-    }
+    return Response.json({
+      message: "Conexión exitosa",
+      data: result.recordset,
+    });
+  } catch (err) {
+    console.error("Error de conexión SQL", err);
+    return Response.json(
+      { message: "Error al conectar a la base de datos" },
+      { status: 500 }
+    );
+  }
 }
