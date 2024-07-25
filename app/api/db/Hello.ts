@@ -1,12 +1,14 @@
+// pages/api/hello.ts
+
 import type { NextApiRequest, NextApiResponse } from 'next'
- 
-type ResponseData = {
+
+type Data = {
   message: string
 }
- 
+
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<ResponseData>
+  res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ message: 'Hello from Next.js!' })
+  res.status(200).json({ message: 'hola' })
 }
