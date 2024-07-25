@@ -20,43 +20,31 @@ const dbConfig = {
 let pool: any;
 
 async function getPool() {
-  if (!pool) {
+    if (!pool) {
+      try {
+        pool = await sql.connect(dbConfig);
+      } catch (err) {
+        console.error("Error al crear el pool de conexiones:", err);
+        throw err;
+      }
+    }
+    return pool;
+  }
+  
+  export async function GET() {
     try {
-      pool = await sql.connect(dbConfig);
-    } catch (err) {
-      console.error("Error al crear el pool de conexiones:", err);
-      throw err;
+      const pool = await getPool();
+      const result = await pool.request().query("SELECT TOP 1 rut FROM RUT");
+  
+      return Response.json({
+        message: "Conexión exitosa",
+        data: result.recordset,
+      });
+    } catch (err: any) {   
+      console.error("Error de conexión SQL", err);
+      return Response.json(
+        { message: "Error al conectar a la base de datos", error: err.message },
+        { status: 500 }
+      );
     }
   }
-  return pool;
-}
-
-function verifyToken(request: Request) {
-  const token = request.headers.get('Authorization')?.split(' ')[1];
-  return token === process.env.VERCEL_TOKEN;
-}
-
-export async function GET(request: Request) {
-  if (!verifyToken(request)) {
-    return Response.json(
-      { message: "No autorizado" },
-      { status: 401 }
-    );
-  }
-
-  try {
-    const pool = await getPool();
-    const result = await pool.request().query("SELECT rut FROM RUT");
-
-    return Response.json({
-      message: "Conexión exitosa",
-      data: result.recordset,
-    });
-  } catch (err) {
-    console.error("Error de conexión SQL", err);
-    return Response.json(
-      { message: "Error al conectar a la base de datos" },
-      { status: 500 }
-    );
-  }
-}

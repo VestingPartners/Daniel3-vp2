@@ -8,7 +8,9 @@ export default function Login() {
     useEffect(() => {
 
         fetch('https://daniel3-vp2.vercel.app/api/db', {
-            headers: { 'Authorization': 'Bearer WzXWHFGZEiQ6Y4C1UXCNMx5I' }
+            headers: { 
+                Authorization: 'Bearer WzXWHFGZEiQ6Y4C1UXCNMx5I'
+            }
           })
             .then((response) => {
                 if (!response.ok) {
