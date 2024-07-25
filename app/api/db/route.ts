@@ -9,7 +9,7 @@ const dbConfig = {
   pool: {
     max: 10,
     min: 0,
-    idleTimeoutMillis: 120000,
+    idleTimeoutMillis: 60000,
   },
   options: {
     encrypt: true,
