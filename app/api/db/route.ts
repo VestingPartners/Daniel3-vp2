@@ -12,7 +12,7 @@ const dbConfig = {
     idleTimeoutMillis: 60000,
   },
   options: {
-    encrypt: true,
+    encrypt: false,
     trustServerCertificate: true
   }
 };
