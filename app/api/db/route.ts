@@ -4,8 +4,8 @@ const dbConfig = {
   user: "consulta",
   password: "consulta",
   database: "VP",
-  server: "201.159.169.163\\WIN-2ODKFLFVAF3",
-  port: 1433,
+  server: "201.159.169.163\\WIN-2ODKFLFVAF3,1433",
+  //port: 1433,
   //instanceName: "WIN-2ODKFLFVAF3",
   pool: {
     max: 10,
