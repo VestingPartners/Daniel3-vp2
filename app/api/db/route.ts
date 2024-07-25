@@ -37,12 +37,7 @@ function verifyToken(request: Request) {
 }
 
 export async function GET(request: Request) {
-  if (!verifyToken(request)) {
-    return Response.json(
-      { message: "No autorizado" },
-      { status: 401 }
-    );
-  }
+
 
   try {
     const pool = await getPool();
