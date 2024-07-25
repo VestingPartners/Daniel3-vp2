@@ -9,7 +9,7 @@ export default function Login() {
 
         fetch('api/db', {
             headers: { 
-                Authorization: 'WzXWHFGZEiQ6Y4C1UXCNMx5I'
+                Authorization: 'Beared WzXWHFGZEiQ6Y4C1UXCNMx5I'
             }
           })
             .then((response) => {
