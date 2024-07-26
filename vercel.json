@@ -20,12 +20,10 @@
         "dest": "/app/$1"
       }
     ],
-    
-      "functions": {
+          "functions": {
         "api/db/route.js": {
           "maxDuration": 60
         }
       }
-  
-  }
+    }
   
