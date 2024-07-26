@@ -1,4 +1,5 @@
 import sql from "mssql";
+import { createPool, Pool } from 'mysql2/promise';
 
 const dbConfig = {
   port: 1433,
@@ -17,41 +18,28 @@ const dbConfig = {
   }
 };
 
-let pool: any;
+let pool: pool;
 
 async function getPool() {
   if (!pool) {
-    try {
-      pool = await sql.connect(dbConfig);
-    } catch (err) {
-      console.error("Error al crear el pool de conexiones:", err);
-      throw err;
-    }
+    pool = createPool(dbConfig);
   }
   return pool;
 }
 
-function verifyToken(request: Request) {
-  const token = request.headers.get('Authorization')?.split(' ')[1];
-  return token === process.env.VERCEL_TOKEN;
-}
-
-export async function GET(request: Request) {
-
-
+export async function GET() {
   try {
     const pool = await getPool();
-    const result = await pool.request().query("SELECT top 1 rut FROM RUT");
-
+    const [rows] = await pool.query('SELECT TOP 1 rut FROM RUT');
     return Response.json({
       message: "Conexión exitosa",
-      data: result.recordset,
+      data: rows,
     });
-  } catch (err) {
-    console.error("Error de conexión SQL", err);
-    return Response.json(
-      { message: "Error al conectar a la base de datos" },
-      { status: 500 }
-    );
+  } catch (err: any) {
+      console.error("Error de conexión SQL", err);
+      return Response.json(
+        { message: "Error al conectar a la base de datos", error: err.message },
+        { status: 500 }
+      );
   }
 }
