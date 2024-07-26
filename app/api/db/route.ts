@@ -18,7 +18,7 @@ const dbConfig = {
   }
 };
 
-let pool: pool;
+let pool: any;
 
 async function getPool() {
   if (!pool) {
