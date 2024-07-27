@@ -9,13 +9,16 @@ const dbConfig = {
     pool: {
         max: 10,
         min: 0,
-        idleTimeoutMillis: 30000,
+        idleTimeoutMillis: 60000,
     },
     options: {
-        encrypt: false,
+        encrypt: true,
         trustServerCertificate: true,
     },
 };
+//Data Source = 201.159.169.163\WIN - 2ODKFLFVAF3, 1433;
+//User ID = consulta; Password =********;Connect Timeout = 30; Encrypt = True;
+//Trust Server Certificate = True;Application Intent = ReadWrite;Multi Subnet Failover = False
 
 let pool: sql.ConnectionPool;
 
