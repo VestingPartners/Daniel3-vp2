@@ -4,5 +4,12 @@
     "api/db/route.js": {
       "maxDuration": 60
     }
-  }
+  },
+  "routes": [
+    {
+      "src": "/api/db/route",
+      "dest": "/api/db/route.js"
+    }
+  ]
 }
+
