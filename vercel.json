@@ -1,7 +1,7 @@
 {
   "version": 2,
   "functions": {
-    "api/db": {
+    "app/api/db/route.ts": {
       "maxDuration": 60
     }
   },
