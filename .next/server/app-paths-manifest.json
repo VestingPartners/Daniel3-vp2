@@ -1,3 +1,10 @@
 {
-  "/api/db/route": "app/api/db/route.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/db/route": "app/api/db/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/login2/page": "app/login2/page.js",
+  "/page": "app/page.js",
+  "/productos/page": "app/productos/page.js",
+  "/test/page": "app/test/page.js",
+  "/login/page": "app/login/page.js"
 }
