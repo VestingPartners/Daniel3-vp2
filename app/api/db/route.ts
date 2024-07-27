@@ -1,20 +1,20 @@
 import sql from "mssql";
 import { createPool, Pool } from 'mysql2/promise';
 
-const dbConfig = {
-  user: "consulta",
-  password: "consulta",
-  database: "VP",
-    server: "201.159.169.163\WIN-2ODKFLFVAF3,1433",
-  pool: {
-    max: 10,
-    min: 0,
-    idleTimeoutMillis: 30000,
-  },
-  options: {
-    encrypt: true, 
-    trustServerCertificate: true
-  }
+const config = {
+    server: '201.159.169.163\\WIN-2ODKFLFVAF3',
+    authentication: {
+        type: 'default',
+        options: {
+            userName: 'consulta',
+            password: 'consulta'
+        }
+    },
+    options: {
+        port: 1433,
+        database: 'VP',
+        trustServerCertificate: true
+    }
 };
 
 let pool: Pool;
