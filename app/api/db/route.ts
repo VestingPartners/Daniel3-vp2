@@ -2,7 +2,6 @@ import sql from "mssql";
 import { createPool, Pool } from 'mysql2/promise';
 
 const dbConfig = {
-  port: 1433,
   user: "consulta",
   password: "consulta",
   database: "VP",
