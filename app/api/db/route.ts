@@ -6,7 +6,7 @@ const dbConfig = {
   user: "consulta",
   password: "consulta",
   database: "VP",
-  server: "201.159.169.163",
+    server: "201.159.169.163\\WIN-2ODKFLFVAF3,1433",
   pool: {
     max: 10,
     min: 0,
