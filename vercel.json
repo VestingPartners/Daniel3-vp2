@@ -10,6 +10,14 @@
       "src": "/api/db/route",
       "dest": "/api/db/route.js"
     }
+  ],
+  "builds": [
+    {
+      "src": "app/api/db/route.ts",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["node_modules/tedious/**"]
+      }
+    }
   ]
 }
-
