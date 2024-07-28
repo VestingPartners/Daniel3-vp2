@@ -20,7 +20,8 @@
     "react-dom": "^18",
     "recharts": "^2.12.7",
     "tailwind-merge": "^2.4.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "tedious": "^18.3.0"
   },
   "devDependencies": {
     "@types/mssql": "^9.1.5",
@@ -33,5 +34,4 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
-} 
-
+}

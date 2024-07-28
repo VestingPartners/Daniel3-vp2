@@ -1,52 +1,39 @@
-import sql from "mssql";
+import { Connection, Request } from "tedious";
 
-const dbConfig = {
-    user: "consulta",
-    password: "consulta",
-    database: "VP",
-    server: "201.159.169.163",
-    port: 1433,
-    pool: {
-        max: 10,
-        min: 0,
-        idleTimeoutMillis: 60000,
+const config = {
+    authentication: {
+        options: {
+            userName: "consulta",
+            password: "consulta",
+        },
+        type: "default",
     },
+    server: "201.159.169.163",
     options: {
+        database: "VP",
         encrypt: true,
         trustServerCertificate: true,
+        rowCollectionOnRequestCompletion: true,
     },
 };
-//Data Source = 201.159.169.163\WIN - 2ODKFLFVAF3, 1433;
-//User ID = consulta; Password =********;Connect Timeout = 30; Encrypt = True;
-//Trust Server Certificate = True;Application Intent = ReadWrite;Multi Subnet Failover = False
 
-let pool: sql.ConnectionPool;
+const connection = new Connection(config);
 
-async function getPool() {
-    if (!pool) {
-        pool = await sql.connect(dbConfig);
-    }
-    return pool;
-}
-
-export async function GET() {
-    try {
-        const pool = await getPool();
-        const result = await pool.request().query('SELECT TOP 1 rut FROM RUT');
-        return new Response(JSON.stringify({
-            message: "Conexión exitosa",
-            data: result.recordset,
-        }), {
-            headers: { 'Content-Type': 'application/json' },
-        });
-    } catch (err: any) {
+connection.on("connect", (err) => {
+    if (err) {
         console.error("Error de conexión SQL", err);
-        return new Response(JSON.stringify({
-            message: "Error al conectar a la base de datos",
-            error: err.message,
-        }), {
-            status: 500,
-            headers: { 'Content-Type': 'application/json' },
+    } else {
+        const request = new Request("SELECT TOP 1 rut FROM RUT", (err, rowCount, rows) => {
+            if (err) {
+                console.error("Error en la consulta SQL", err);
+            } else {
+                console.log(rows);
+            }
+            connection.close();
         });
+
+        connection.execSql(request);
     }
-}
+});
+
+connection.connect();
