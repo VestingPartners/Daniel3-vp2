@@ -24,5 +24,3 @@ async function connectToDatabase() {
 }
 
 connectToDatabase();
-
- 
