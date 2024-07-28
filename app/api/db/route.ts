@@ -1,39 +1,25 @@
-import { Connection, Request } from "tedious";
+import { Sequelize } from "sequelize";
 
-const config = {
-    authentication: {
+const sequelize = new Sequelize("VP", "consulta", "consulta", {
+    host: "201.159.169.163",
+    dialect: "mssql",
+    dialectOptions: {
         options: {
-            userName: "consulta",
-            password: "consulta",
+            encrypt: true,
+            trustServerCertificate: true,
         },
-        type: "default",
     },
-    server: "201.159.169.163",
-    options: {
-        database: "VP",
-        encrypt: true,
-        trustServerCertificate: true,
-        rowCollectionOnRequestCompletion: true,
-    },
-};
-
-const connection = new Connection(config);
-
-connection.on("connect", (err) => {
-    if (err) {
-        console.error("Error de conexión SQL", err);
-    } else {
-        const request = new Request("SELECT TOP 1 rut FROM RUT", (err, rowCount, rows) => {
-            if (err) {
-                console.error("Error en la consulta SQL", err);
-            } else {
-                console.log(rows);
-            }
-            connection.close();
-        });
-
-        connection.execSql(request);
-    }
 });
 
-connection.connect();
+async function connectToDatabase() {
+    try {
+        await sequelize.authenticate();
+        console.log("Conexión exitosa");
+        const [results, metadata] = await sequelize.query("SELECT TOP 1 rut FROM RUT");
+        console.log(results);
+    } catch (err) {
+        console.error("Error de conexión SQL", err);
+    }
+}
+
+connectToDatabase();
